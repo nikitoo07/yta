@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YTA · Young Talent Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1b34;--bg2:#10244a;--ink:#f2f0ea;--mute:#a9b4c8;--red:#e0392f;--grass:#3c8a50;--line:rgba(242,240,234,.22);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1b34}}
+:root[data-theme="dark"]{--bg:#0c1b34}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Newsreader',Georgia,serif;font-size:1.15rem;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.sans{font-family:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;padding:calc(14px + env(safe-area-inset-top,0px)) 24px 14px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(var(--bg),transparent)}
+nav b{font:800 1.3rem 'Bricolage Grotesque',sans-serif;letter-spacing:.02em}
+nav a{font:400 .95rem 'Bricolage Grotesque',sans-serif;text-decoration:none;margin-left:20px;opacity:.85}
+nav a:hover{opacity:1}
+.hero{min-height:100vh;min-height:100svh;position:relative;display:grid;align-items:center;padding:110px 0 60px;overflow:hidden}
+.pitch{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.pitch *{fill:none;stroke:var(--ink);stroke-width:2;vector-effect:non-scaling-stroke}
+.pass{stroke:var(--red)!important;stroke-dasharray:6 10;stroke-width:2.5!important;opacity:.9}
+.ball{position:absolute;left:0;top:0;width:34px;height:34px;z-index:2;filter:drop-shadow(0 10px 8px rgba(0,0,0,.45))}
+.shadow{position:absolute;left:0;top:0;width:30px;height:10px;border-radius:50%;background:rgba(0,0,0,.35);filter:blur(4px);z-index:1}
+.hero .wrap{position:relative;z-index:3}
+h1{font-weight:800;font-size:clamp(3rem,9vw,7.2rem);line-height:.95;letter-spacing:-.03em;max-width:11ch}
+.hero p{max-width:34ch;margin-top:26px;font-size:1.3rem;color:var(--mute)}
+.hero p i{color:var(--ink)}
+.btn{display:inline-block;margin-top:32px;padding:14px 26px;border-radius:999px;background:var(--red);color:#fff;text-decoration:none;font:700 1rem 'Bricolage Grotesque',sans-serif;transition:transform .25s}
+.btn:hover{transform:translateY(-3px)}
+section{padding:110px 0}
+h2{font-weight:800;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;max-width:18ch}
+.lead{max-width:60ch;margin-top:24px;color:var(--mute)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.alt{background:var(--bg2)}
+.pillars{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.pillars div{padding:28px 28px 0 0}
+.pillars div+div{padding-left:28px;border-left:1px solid var(--line)}
+.pillars h3{font-size:1.4rem;margin-bottom:8px}
+.pillars p{color:var(--mute);font-size:1.05rem}
+.age{font:800 clamp(5rem,16vw,11rem)/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em;color:var(--red)}
+.route{position:relative;margin-top:56px;padding-left:34px}
+.route .rail{position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.route .fill{position:absolute;left:8px;top:8px;width:2px;height:0;background:var(--red)}
+.step{position:relative;padding-bottom:40px;max-width:52ch}
+.step:before{content:"";position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--red)}
+.step h3{font-size:1.35rem}
+.step p{color:var(--mute)}
+.team{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.team div{padding-top:18px;border-top:2px solid var(--ink)}
+.team b{font:700 1.15rem 'Bricolage Grotesque',sans-serif;display:block}
+.team span{color:var(--mute);font-size:1rem}
+.cta{text-align:center;padding:150px 0}
+.cta h2{margin:0 auto;max-width:12ch;font-size:clamp(2.6rem,8vw,6rem)}
+.cta p{margin:22px auto 0;color:var(--mute);max-width:44ch}
+footer{padding:28px 24px calc(28px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mute);font-size:.95rem;border-top:1px solid var(--line)}
+@media(max-width:820px){.split,.pillars,.team{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}.pillars div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:24px}nav a{display:none}section{padding:80px 0}}
+@media(max-width:480px){.team{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.causes>div{padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--line)}.causes h3{font-size:1.3rem;margin-bottom:4px}.causes p{color:var(--mute);font-size:1.05rem}
+.rows{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:0 56px}.row{padding:24px 0;border-top:1px solid var(--line)}.row h3{font-size:1.3rem;margin-bottom:6px}.row p{color:var(--mute);font-size:1.05rem}
+.faq{margin-top:36px;max-width:760px}.faq details{border-top:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;font:700 1.15rem 'Bricolage Grotesque',sans-serif;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";float:right;transition:transform .3s}.faq details[open] summary:after{transform:rotate(45deg)}.faq p{margin-top:10px;color:var(--mute)}
+@media(max-width:820px){.rows{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><b>YTA</b><div><a href="#problema">El problema</a><a href="#hacemos">Qué hacemos</a><a href="#servicios">Servicios</a><a href="#ruta">Ruta</a><a href="#preguntas">Preguntas</a></div></nav>
+
+<header class="hero">
+  <svg class="pitch" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect class="dr" x="60" y="80" width="1080" height="640"/>
+    <line class="dr" x1="600" y1="80" x2="600" y2="720"/>
+    <circle class="dr" cx="600" cy="400" r="90"/>
+    <rect class="dr" x="60" y="250" width="150" height="300"/>
+    <rect class="dr" x="990" y="250" width="150" height="300"/>
+    <path class="dr pass" id="route" d="M150 640 C 330 300, 520 560, 700 380 S 980 300, 1060 400"/>
+  </svg>
+  <div class="shadow" id="sh"></div>
+  <svg class="ball" id="ball" viewBox="0 0 40 40" aria-hidden="true">
+    <circle cx="20" cy="20" r="18" fill="#f2f0ea"/>
+    <polygon points="20,11 27,16 24,25 16,25 13,16" fill="#0c1b34"/>
+    <g stroke="#0c1b34" stroke-width="1.6"><path d="M20 11V3M27 16l8-3M24 25l5 7M16 25l-5 7M13 16l-8-3"/></g>
+    <circle cx="20" cy="20" r="18" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <h1 id="t">Nada es imposible.</h1>
+    <p class="sub">En Chile hay chicos con talento y ganas que nunca son vistos. Somos <i>Young Talent Agency</i>: los acompañamos para que el fútbol sea un camino real.</p>
+    <a class="btn sub" href="#hacemos">Conoce cómo lo hacemos</a>
+  </div>
+</header>
+
+<section id="problema">
+  <div class="wrap split">
+    <div>
+      <h2 class="rv">Muchos jóvenes se alejan del fútbol antes de empezar.</h2>
+      <p class="lead rv">Faltan futbolistas jóvenes en Chile, y casi nunca es por falta de talento. Es por falta de espacios donde se les vea, de guía constante y de alguien que crea en ellos cuando el camino se pone difícil. Ahí es donde queremos estar.</p>
+    </div>
+    <div class="causes">
+      <div class="rv"><h3>Nadie los detecta</h3><p>Muchos chicos juegan en canchas de barrio o en su colegio y nunca pasan frente a un ojo profesional.</p></div>
+      <div class="rv"><h3>Se pierde la motivación</h3><p>Sin metas claras ni resultados visibles, es fácil que el interés se apague y el balón quede guardado.</p></div>
+      <div class="rv"><h3>Falta orientación</h3><p>Las familias no siempre saben cómo funciona el fútbol formativo, ni a quién acudir para dar el siguiente paso.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="hacemos" class="alt">
+  <div class="wrap">
+    <h2 class="rv">Una agencia pensada para cada jugador, no solo para el mejor.</h2>
+    <p class="lead rv">Una agencia de jóvenes futbolistas es el puente entre el talento y las oportunidades. Nosotros lo hacemos con cercanía: cada jugador tiene un plan propio y una persona que lo sigue de cerca.</p>
+    <div class="pillars">
+      <div class="rv"><h3>Descubrimos</h3><p>Miramos cómo juega cada chico, sin apurarnos a etiquetarlo. Lo importante es su potencial y sus ganas.</p></div>
+      <div class="rv"><h3>Desarrollamos</h3><p>Trabajo técnico, físico y mental con metas claras, adaptado a su edad y a su posición en la cancha.</p></div>
+      <div class="rv"><h3>Acompañamos</h3><p>Familias, colegio y entrenadores en la misma conversación. Nadie recorre este camino solo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <h2 class="rv">Qué recibe cada jugador.</h2>
+    <div class="rows">
+      <div class="row rv"><h3>Evaluación técnica</h3><p>Revisamos control, pase, definición, lectura de juego y posición ideal. El resultado es un informe simple que el jugador entiende.</p></div>
+      <div class="row rv"><h3>Plan individual</h3><p>Objetivos a corto y mediano plazo, con ejercicios concretos que puede hacer en su club, en su colegio o en casa.</p></div>
+      <div class="row rv"><h3>Preparación física</h3><p>Fuerza, velocidad y prevención de lesiones según su etapa de crecimiento, sin exigirle más de lo que su cuerpo puede dar.</p></div>
+      <div class="row rv"><h3>Preparación mental</h3><p>Manejo de nervios, disciplina y actitud frente a la derrota. Un buen jugador también se forma desde la cabeza.</p></div>
+      <div class="row rv"><h3>Apoyo escolar</h3><p>Los estudios no se descuidan. Coordinamos horarios para que entrenar y rendir en el colegio sean compatibles.</p></div>
+      <div class="row rv"><h3>Vinculación con clubes</h3><p>Preparamos su perfil y lo conectamos con clubes y pruebas acordes a su nivel y a su etapa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="valores" class="alt">
+  <div class="wrap split">
+    <div><h2 class="rv">Lo que nos guía.</h2><p class="lead rv">Nuestro lema, "Nada es imposible", no promete fama. Promete que cada jugador tiene derecho a intentarlo con las herramientas correctas.</p></div>
+    <div class="causes">
+      <div class="rv"><h3>Constancia</h3><p>Los avances vienen del trabajo de todas las semanas, no de un solo partido brillante.</p></div>
+      <div class="rv"><h3>Respeto</h3><p>Por los compañeros, los rivales, los entrenadores y el propio proceso de cada uno.</p></div>
+      <div class="rv"><h3>Transparencia</h3><p>Hablamos claro con jugadores y familias sobre el nivel actual y lo que falta por mejorar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ruta">
+  <div class="wrap">
+    <h2 class="rv">Cómo es el camino con YTA.</h2>
+    <div class="route" id="route-list">
+      <div class="rail"></div><div class="fill" id="fill"></div>
+      <div class="step rv"><h3>Nos conocemos</h3><p>Una primera conversación con el jugador y su familia para entender de dónde viene y qué sueña.</p></div>
+      <div class="step rv"><h3>Evaluamos</h3><p>Observamos su juego en cancha y definimos en qué puede crecer.</p></div>
+      <div class="step rv"><h3>Entrenamos con un plan</h3><p>Objetivos simples, revisados con frecuencia y celebrados cuando se cumplen.</p></div>
+      <div class="step rv"><h3>Abrimos puertas</h3><p>Lo conectamos con clubes y oportunidades a la medida de su nivel y su etapa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="preguntas" class="alt">
+  <div class="wrap">
+    <h2 class="rv">Preguntas frecuentes.</h2>
+    <div class="faq rv">
+      <details><summary>¿Hay que ser muy bueno para entrar?</summary><p>No. Evaluamos el punto de partida y el compromiso. Lo que buscamos es que cada jugador mejore, no que ya sea una estrella.</p></details>
+      <details><summary>¿Qué pasa con el colegio?</summary><p>Es prioridad. El plan de entrenamiento se arma respetando horarios y notas.</p></details>
+      <details><summary>¿Garantizan que llegarán a un club profesional?</summary><p>No, y desconfía de quien lo haga. Garantizamos acompañamiento serio, un plan claro y oportunidades reales de mostrarse.</p></details>
+      <details><summary>¿Qué rol tiene la familia?</summary><p>Es parte del equipo. Reciben informes periódicos y participan en las decisiones importantes.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="rv">Tu talento merece que lo vean.</h2>
+    <p class="rv">Si el fútbol te mueve, este es tu lugar para empezar.</p>
+  </div>
+</section>
+<footer>YTA · Young Talent Agency · me kedo wena la pagina verda kesi </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script>
+(function(){
+  if(!window.gsap){return}
+  gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still){gsap.set('.ball,.shadow',{autoAlpha:0});return}
+
+  // Hero: la cancha se dibuja y el balón recorre el pase
+  var lines=gsap.utils.toArray('.dr');
+  lines.forEach(function(l){
+    if(l.classList.contains('pass')){return}
+    var len=l.getTotalLength();gsap.set(l,{strokeDasharray:len,strokeDashoffset:len});
+  });
+  gsap.set('.pass',{autoAlpha:0});
+  gsap.set('.sub',{autoAlpha:0,y:16});
+  var ball=document.getElementById('ball'),sh=document.getElementById('sh');
+  gsap.set([ball,sh],{autoAlpha:0});
+
+  var tl=gsap.timeline({defaults:{ease:'power2.out'}});
+  tl.to(lines.filter(function(l){return !l.classList.contains('pass')}),{strokeDashoffset:0,duration:2.2,stagger:.18,ease:'power1.inOut'})
+    .from('#t',{autoAlpha:0,y:40,duration:1.2},.5)
+    .to('.sub',{autoAlpha:1,y:0,duration:.9,stagger:.15},1.4)
+    .to('.pass',{autoAlpha:.9,duration:.8},2)
+    .set([ball,sh],{autoAlpha:1},2.2);
+
+  // El balón sigue la curva del pase con rebote y giro
+  var path=document.getElementById('route');
+  var svg=path.ownerSVGElement;
+  function place(p){
+    var m=svg.getScreenCTM(),pt=svg.createSVGPoint();pt.x=p.x;pt.y=p.y;
+    var s=pt.matrixTransform(m);
+    return {x:s.x-17+scrollX,y:s.y-17+scrollY};
+  }
+  var prog={v:0};
+  function update(){
+    var len=path.getTotalLength(),p=path.getPointAtLength(len*prog.v),s=place(p);
+    var lift=Math.abs(Math.sin(prog.v*Math.PI*4))*26*(1-prog.v*.5);
+    gsap.set(ball,{x:s.x,y:s.y-lift,rotation:prog.v*1080});
+    gsap.set(sh,{x:s.x+2,y:s.y+26,scaleX:1-lift/70,opacity:.9-lift/40});
+  }
+  tl.to(prog,{v:1,duration:4.2,ease:'power1.inOut',onUpdate:update,onStart:update},2.4)
+    .to([ball,sh],{autoAlpha:0,duration:.8},'>+.3');
+  addEventListener('resize',update);
+
+  // Entradas al hacer scroll, discretas
+  gsap.utils.toArray('.rv').forEach(function(el){
+    gsap.from(el,{autoAlpha:0,y:26,duration:.9,ease:'power2.out',
+      scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+  });
+
+  // La línea de la ruta avanza con el scroll
+  gsap.to('#fill',{height:'calc(100% - 16px)',ease:'none',
+    scrollTrigger:{trigger:'#route-list',start:'top 70%',end:'bottom 70%',scrub:.6}});
+
+})();
+</script>
+</body>
+</html>
